@@ -79,5 +79,7 @@ returns a blank plot if there are no accidents to
 plot
 }
 \examples{
+\dontrun{
 fars_map_state(49,2015)
+}
 }

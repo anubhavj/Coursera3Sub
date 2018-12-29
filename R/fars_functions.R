@@ -17,7 +17,9 @@
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
 #' @examples
+#' \dontrun{
 #' fars_read("accident_2015.csv.bz2")
+#' }
 #' @note To generate file name use: \code{\link{make_filename}}
 #' @seealso \link{make_filename}
 #' @export
@@ -100,8 +102,10 @@ fars_read_years <- function(years) {
 #' @importFrom tidyr spread_
 #' @importFrom magrittr "%>%"
 #' @examples
+#' \dontrun{
 #' fars_summarize_years(2013)
 #' fars_summarize_years(c(2013,2014))
+#' }
 #' @export
 
 fars_summarize_years <- function(years) {
@@ -184,7 +188,9 @@ fars_summarize_years <- function(years) {
 #' @importFrom maps map
 #' @importFrom graphics points
 #' @examples
+#' \dontrun{
 #' fars_map_state(49,2015)
+#' }
 #' @export
 
 fars_map_state <- function(state.num, year) {

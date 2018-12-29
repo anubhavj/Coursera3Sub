@@ -30,7 +30,9 @@ For more information, see:
 To generate file name use: \code{\link{make_filename}}
 }
 \examples{
+\dontrun{
 fars_read("accident_2015.csv.bz2")
+}
 }
 \seealso{
 \link{make_filename}
