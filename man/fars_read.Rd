@@ -19,7 +19,25 @@ to read the file suppressing the messages during that
 process. Finally it converts the data read above into
 a data frame
 }
+\details{
+For more information, see:
+\itemize{
+  \item{\url{https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars}}
+  \item{\url{https://en.wikipedia.org/wiki/Fatality_Analysis_Reporting_System}}
+}
+}
+\note{
+To generate file name use: \code{\link{make_filename}}
+}
 \examples{
-fars_read("accident_2013.csv")
-fars_read("myfile.csv")
+library(dplyr)
+library(readr)
+yr <- 2015
+data <- yr \%>\%
+  make_filename \%>\%
+  fars_read
+head(data)
+}
+\seealso{
+\link{make_filename}
 }

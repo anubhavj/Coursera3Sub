@@ -6,13 +6,27 @@
 #' process. Finally it converts the data read above into
 #' a data frame
 #'
+#' @details For more information, see:
+#' \itemize{
+#'   \item{\url{https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars}}
+#'   \item{\url{https://en.wikipedia.org/wiki/Fatality_Analysis_Reporting_System}}
+#' }
+#'
 #' @param filename A name for the file to be read
 #' @return The data frame created after reading the file \code{filename}
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
 #' @examples
-#' fars_read("accident_2013.csv")
-#' fars_read("myfile.csv")
+#' library(dplyr)
+#' library(readr)
+#' yr <- 2015
+#' data <- yr %>%
+#'   make_filename %>%
+#'   fars_read
+#' head(data)
+#' @note To generate file name use: \code{\link{make_filename}}
+#' @seealso \link{make_filename}
+#' @export
 
 fars_read <- function(filename) {
   if(!file.exists(filename))
