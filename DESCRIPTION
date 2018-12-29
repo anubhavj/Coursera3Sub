@@ -3,8 +3,8 @@ Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Anubhav Jain
-Maintainer: The package maintainer <anubhav.iim@gmail.com>
-Description: Package for Coursera Submission on FARS Data
+Maintainer: Anubhav Jain <anubhav.iim@gmail.com>
+Description: Coursera-Submission-on-FARS-Data.
 License: GPL (>=3)
 Encoding: UTF-8
 LazyData: true
