@@ -17,13 +17,7 @@
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
 #' @examples
-#' library(dplyr)
-#' library(readr)
-#' yr <- 2015
-#' data <- yr %>%
-#'   make_filename %>%
-#'   fars_read
-#' head(data)
+#' fars_read("accident_2015.csv.bz2")
 #' @note To generate file name use: \code{\link{make_filename}}
 #' @seealso \link{make_filename}
 #' @export
@@ -52,7 +46,10 @@ fars_read <- function(filename) {
 
 make_filename <- function(year) {
   year <- as.integer(year)
-  system.file("extdata",sprintf("accident_%d.csv.bz2",year),package="Coursera3Sub",mustwork=TRUE)
+  system.file("extdata",
+             sprintf("accident_%d.csv.bz2", year),
+             package = "Coursera3Sub",
+             mustWork = TRUE)
 }
 
 #' Extract Data for Given Years
@@ -197,7 +194,7 @@ fars_map_state <- function(state.num, year) {
 
   if(!(state.num %in% unique(data$STATE)))
     stop("invalid STATE number: ", state.num)
-  data.sub <- dplyr::filter(data, .dots = paste0("STATE==", state.num))
+  data.sub <- dplyr::filter(data, "STATE" == state.num)
   if(nrow(data.sub) == 0L) {
     message("no accidents to plot")
     return(invisible(NULL))

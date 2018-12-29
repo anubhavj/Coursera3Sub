@@ -30,13 +30,7 @@ For more information, see:
 To generate file name use: \code{\link{make_filename}}
 }
 \examples{
-library(dplyr)
-library(readr)
-yr <- 2015
-data <- yr \%>\%
-  make_filename \%>\%
-  fars_read
-head(data)
+fars_read("accident_2015.csv.bz2")
 }
 \seealso{
 \link{make_filename}
