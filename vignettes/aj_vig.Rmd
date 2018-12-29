@@ -24,9 +24,25 @@ This vignette is a brief overview of the Coursera3Sub package and its functional
 
 ## Exported functions
  
-Three functions are exported so that the user can use them
+Four functions are exported so that the user can use them
 
 - `fars_read()`
+- `make_filename()`
 - `fars_summarize_years()`
 - `fars_map_state()`
 
+## FARS Read function
+
+The function `fars_read()` reads a data file from a path (as argument). It returns a loaded data set.
+
+## FARS Makefile function
+
+The function `make_filename()` reads a year number as argument. It returns a file name for that year.
+
+## FARS Summarize function
+
+The function `fars_summarize_years()` takes a vector/ list of years as an argument and returns a tables of accidents per month and year.
+
+## FARS Map state
+
+The function `fars_map_state()` takes a state and a year as inputs and returns a plot of the state and its accident locations.
