@@ -20,3 +20,6 @@ for the \code{year} value provided
 make_filename(2013)
 make_filename(2014)
 }
+\seealso{
+\link{make_filename}
+}

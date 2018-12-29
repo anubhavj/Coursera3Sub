@@ -47,10 +47,12 @@ fars_read <- function(filename) {
 #' @examples
 #' make_filename(2013)
 #' make_filename(2014)
+#' @seealso \link{make_filename}
+#' @export
 
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("accident_%d.csv.bz2", year)
+  system.file("extdata",sprintf("accident_%d.csv.bz2",year),package="Coursera3Sub",mustwork=TRUE)
 }
 
 #' Extract Data for Given Years
@@ -70,6 +72,7 @@ make_filename <- function(year) {
 #' @examples
 #' fars_read_years(2013)
 #' fars_read_years(c(2013,2014))
+#' @export
 
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -102,6 +105,7 @@ fars_read_years <- function(years) {
 #' @examples
 #' fars_summarize_years(2013)
 #' fars_summarize_years(c(2013,2014))
+#' @export
 
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
