@@ -1,7 +1,7 @@
 #' File Reading Function
 #'
 #' This is a function that first checks if a file exists
-#' otherwise uses the readr package's read_csv function
+#' otherwise uses the read_csv function from readr
 #' to read the file suppressing the messages during that
 #' process. Finally it converts the data read above into
 #' a data frame
