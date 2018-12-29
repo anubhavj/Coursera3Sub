@@ -62,8 +62,8 @@ fars_read_years <- function(years) {
     file <- make_filename(year)
     tryCatch({
       dat <- fars_read(file)
-      dplyr::mutate(dat, year = year) %>%
-        dplyr::select(MONTH, year)
+      dplyr::mutate(dat, year = "year") %>%
+        dplyr::select("MONTH", "year")
     }, error = function(e) {
       warning("invalid year: ", year)
       return(NULL)
@@ -92,9 +92,9 @@ fars_read_years <- function(years) {
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
-    dplyr::group_by(year, MONTH) %>%
-    dplyr::summarize(n = n()) %>%
-    tidyr::spread(year, n)
+    dplyr::group_by("year", "MONTH") %>%
+    dplyr::summarize(n = "n()") %>%
+    tidyr::spread("year", "n")
 }
 
 #' Plotting Accidents on Map for Given State
@@ -106,14 +106,15 @@ fars_summarize_years <- function(years) {
 #' returns a blank plot if there are no accidents to
 #' plot
 #'
-#' @param state.nu A numeric/integer State Code
+#' @param state.num A numeric/integer State Code
 #' @param year A numeric or character value for a particular Year
 #' @return The map of accidents for the entered State and Year
 #' @importFrom dplyr filter_
 #' @importFrom maps map
 #' @importFrom graphics points
 #' @examples
-#' fars_map_state(1,2013)
+#' fars_map_state(49,2015)
+#' @export
 
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
@@ -122,7 +123,7 @@ fars_map_state <- function(state.num, year) {
 
   if(!(state.num %in% unique(data$STATE)))
     stop("invalid STATE number: ", state.num)
-  data.sub <- dplyr::filter(data, STATE == state.num)
+  data.sub <- dplyr::filter(data, .dots = paste0("STATE==", state.num))
   if(nrow(data.sub) == 0L) {
     message("no accidents to plot")
     return(invisible(NULL))

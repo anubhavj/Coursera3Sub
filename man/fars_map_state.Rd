@@ -7,9 +7,9 @@
 fars_map_state(state.num, year)
 }
 \arguments{
-\item{year}{A numeric or character value for a particular Year}
+\item{state.num}{A numeric/integer State Code}
 
-\item{state.nu}{A numeric/integer State Code}
+\item{year}{A numeric or character value for a particular Year}
 }
 \value{
 The map of accidents for the entered State and Year
@@ -23,5 +23,5 @@ returns a blank plot if there are no accidents to
 plot
 }
 \examples{
-fars_map_state(1,2013)
+fars_map_state(49,2015)
 }
